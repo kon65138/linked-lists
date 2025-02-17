@@ -83,6 +83,21 @@ class LinkedList {
     }
     return recursiveFind();
   }
+
+  toString() {
+    let head = this.head;
+    let string = '';
+    function recTraverse(node = head) {
+      string += ` ${node.value} ->`;
+      if (node.nextNode === null) {
+        string += ' null';
+        return;
+      }
+      return recTraverse(node.nextNode);
+    }
+    recTraverse();
+    return string;
+  }
 }
 
 class Node {
@@ -110,3 +125,4 @@ console.log(theLiiist.tail());
 console.log(theLiiist);
 console.log(theLiiist.contains('hi im head'));
 console.log(theLiiist.find('hi im head'));
+console.log(theLiiist.toString());
