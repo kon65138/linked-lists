@@ -31,6 +31,25 @@ class LinkedList {
   head() {
     return this.head;
   }
+
+  tail() {
+    let head = this.head;
+
+    function recSearch(node = head) {
+      if (node.nextNode === null) return node;
+      return recSearch(node.nextNode);
+    }
+    return recSearch();
+  }
+
+  at(index) {
+    let head = this.head;
+    function recursiveFind(node = head, currentIndex = 0) {
+      if (currentIndex === index) return node;
+      return recursiveFind(node.nextNode, (currentIndex += 1));
+    }
+    return recursiveFind();
+  }
 }
 
 class Node {
@@ -49,3 +68,5 @@ theLiiist.append('THIS STILL WORKS RIGHT');
 console.log(theLiiist);
 console.log(theLiiist.size());
 console.log(theLiiist.head);
+console.log(theLiiist.tail());
+console.log(theLiiist.at(3));
