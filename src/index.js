@@ -59,6 +59,20 @@ class LinkedList {
     }
     recFind2ndToLast().nextNode = null;
   }
+
+  contains(value) {
+    let head = this.head;
+    function recursiveSearch(node = head) {
+      if (node.value === value) {
+        return true;
+      } else if (node.nextNode === null) {
+        return false;
+      }
+      return recursiveSearch(node.nextNode);
+    }
+
+    return recursiveSearch();
+  }
 }
 
 class Node {
@@ -83,3 +97,5 @@ theLiiist.pop();
 console.log(theLiiist.tail());
 theLiiist.pop();
 console.log(theLiiist.tail());
+console.log(theLiiist);
+console.log(theLiiist.contains('hi im head'));
