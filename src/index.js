@@ -7,6 +7,11 @@ class LinkedList {
 
   append(value) {
     let head = this.head;
+    if (head === null) {
+      let temp = new Node(value);
+      this.head = temp;
+      return;
+    }
     function recSearch(node = head) {
       if (node.nextNode === null) return node;
       return recSearch(node.nextNode);
@@ -146,29 +151,7 @@ class Node {
     this.nextNode = nextNode;
   }
 }
-let theHeaaad = new Node('hi im head');
-let theLiiist = new LinkedList(theHeaaad);
-theLiiist.append('the netxt noddde');
-theLiiist.append('the next neeext node');
-theLiiist.append('the end lol');
-theLiiist.prepend('THE NEW HEAD HAHAHA');
-theLiiist.append('THIS STILL WORKS RIGHT');
-console.log(theLiiist);
-console.log(theLiiist.size());
-console.log(theLiiist.head);
-console.log(theLiiist.tail());
-console.log(theLiiist.at(2));
-theLiiist.pop();
-console.log(theLiiist.tail());
-theLiiist.pop();
-console.log(theLiiist.tail());
-console.log(theLiiist);
-console.log(theLiiist.contains('hi im head'));
-console.log(theLiiist.find('hi im head'));
-console.log(theLiiist.toString());
-theLiiist.insertAt('inserted', 2);
-console.log(theLiiist.toString());
-theLiiist.append('adding this to end just to make longer');
-console.log(theLiiist.toString());
-theLiiist.removeAt(5);
-console.log(theLiiist.toString());
+
+let theList = new LinkedList();
+theList.append('first node');
+console.log(theList.toString());
