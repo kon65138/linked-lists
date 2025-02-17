@@ -27,6 +27,10 @@ class LinkedList {
     }
     return recursiveCount();
   }
+
+  head() {
+    return this.head;
+  }
 }
 
 class Node {
@@ -44,3 +48,4 @@ theLiiist.prepend('THE NEW HEAD HAHAHA');
 theLiiist.append('THIS STILL WORKS RIGHT');
 console.log(theLiiist);
 console.log(theLiiist.size());
+console.log(theLiiist.head);
