@@ -50,6 +50,15 @@ class LinkedList {
     }
     return recursiveFind();
   }
+
+  pop() {
+    let head = this.head;
+    function recFind2ndToLast(node = head) {
+      if (node.nextNode.nextNode === null) return node;
+      return recFind2ndToLast(node.nextNode);
+    }
+    recFind2ndToLast().nextNode = null;
+  }
 }
 
 class Node {
@@ -70,3 +79,7 @@ console.log(theLiiist.size());
 console.log(theLiiist.head);
 console.log(theLiiist.tail());
 console.log(theLiiist.at(3));
+theLiiist.pop();
+console.log(theLiiist.tail());
+theLiiist.pop();
+console.log(theLiiist.tail());
