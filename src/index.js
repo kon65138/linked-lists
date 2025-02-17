@@ -117,6 +117,27 @@ class LinkedList {
     }
     recursiveFind();
   }
+
+  removeAt(index) {
+    let head = this.head;
+    if (index === 0) {
+      this.head = this.head.nextNode;
+      return;
+    }
+    function recursiveFind(node = head, currentIndex = 0) {
+      if (currentIndex === index - 1) {
+        if (node.nextNode === null) {
+          node.nextNode = null;
+          return;
+        }
+        node.nextNode = node.nextNode.nextNode;
+        return;
+      }
+      if (node.nextNode === null) return;
+      return recursiveFind(node.nextNode, (currentIndex += 1));
+    }
+    recursiveFind();
+  }
 }
 
 class Node {
@@ -145,5 +166,9 @@ console.log(theLiiist);
 console.log(theLiiist.contains('hi im head'));
 console.log(theLiiist.find('hi im head'));
 console.log(theLiiist.toString());
-theLiiist.insertAt('inserted', 4);
+theLiiist.insertAt('inserted', 2);
+console.log(theLiiist.toString());
+theLiiist.append('adding this to end just to make longer');
+console.log(theLiiist.toString());
+theLiiist.removeAt(5);
 console.log(theLiiist.toString());
