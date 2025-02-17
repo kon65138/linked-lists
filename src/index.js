@@ -73,6 +73,16 @@ class LinkedList {
 
     return recursiveSearch();
   }
+
+  find(value) {
+    let head = this.head;
+    function recursiveFind(node = head, currentIndex = 0) {
+      if (node.value === value) return currentIndex;
+      if (node.nextNode === null) return null;
+      return recursiveFind(node.nextNode, (currentIndex += 1));
+    }
+    return recursiveFind();
+  }
 }
 
 class Node {
@@ -99,3 +109,4 @@ theLiiist.pop();
 console.log(theLiiist.tail());
 console.log(theLiiist);
 console.log(theLiiist.contains('hi im head'));
+console.log(theLiiist.find('hi im head'));
